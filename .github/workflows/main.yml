@@ -19,12 +19,57 @@ jobs:
         uses: pkoehlers/openscad-Build-action@v1
         with:
           input-file: 'rpi_case.scad'
-          output-file: 'rpi3_top.stl'
+          output-file: 'rpi3_case_top.stl'
           customizer-parameter-file: 'rpi_case.json'
-          customizer-parameter-set: 'rpi3_top'
+          customizer-parameter-set: 'rpi3_case_top'
+      - name: OpenSCAD STL build rpi3 bottom
+        id: openscad-rpi3-bottom
+        uses: pkoehlers/openscad-Build-action@v1
+        with:
+          input-file: 'rpi_case.scad'
+          output-file: 'rpi3_case_bottom.stl'
+          customizer-parameter-file: 'rpi_case.json'
+          customizer-parameter-set: 'rpi3_case_bottom'
+      - name: OpenSCAD STL build rpi3 top with antenna
+        id: openscad-rpi3-top-with-antenna
+        uses: pkoehlers/openscad-Build-action@v1
+        with:
+          input-file: 'rpi_case.scad'
+          output-file: 'rpi3_case_top_with_antenna.stl'
+          customizer-parameter-file: 'rpi_case.json'
+          customizer-parameter-set: 'rpi3_case_top_with_antenna'
+      - name: OpenSCAD STL build rpi4 top
+        id: openscad-rpi4-top
+        uses: pkoehlers/openscad-Build-action@v1
+        with:
+          input-file: 'rpi_case.scad'
+          output-file: 'rpi4_case_top.stl'
+          customizer-parameter-file: 'rpi_case.json'
+          customizer-parameter-set: 'rpi4_case_top'
+      - name: OpenSCAD STL build rpi4 bottom
+        id: openscad-rpi4-bottom
+        uses: pkoehlers/openscad-Build-action@v1
+        with:
+          input-file: 'rpi_case.scad'
+          output-file: 'rpi4_case_bottom.stl'
+          customizer-parameter-file: 'rpi_case.json'
+          customizer-parameter-set: 'rpi4_case_bottom'
+      - name: OpenSCAD STL build rpi4 top with antenna
+        id: openscad-rpi4-top-with-antenna
+        uses: pkoehlers/openscad-Build-action@v1
+        with:
+          input-file: 'rpi_case.scad'
+          output-file: 'rpi4_case_top_with_antenna.stl'
+          customizer-parameter-file: 'rpi_case.json'
+          customizer-parameter-set: 'rpi4_case_top_with_antenna'
       - name: Archive stl outputs
         uses: actions/upload-artifact@v2
         with:
-          name: rpi3_top.stl
+          name: stl
           path: |
-            rpi3_top.stl
+            rpi3_case_top.stl
+            rpi3_case_bottom.stl
+            rpi3_case_top_with_antenna.stl
+            rpi4_case_top.stl
+            rpi4_case_bottom.stl
+            rpi4_case_top_with_antenna.stl
