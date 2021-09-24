@@ -1,0 +1,21 @@
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - name: OpenSCAD STL build rpi3 top
+        id: openscad-rpi3-top
+        uses: pkoehlers/openscad-Build-action@v1
+        with:
+          input-file: 'rpi_case.scad'
+          output-file: 'rpi3_top.stl'
+          customizer-parameter-file: 'rpi_case.json'
+          customizer-parameter-set: 'rpi3_top'
+      - name: Archive stl outputs
+        uses: actions/upload-artifact@v2
+        with:
+          name: rpi3_top.stl
+          path: |
+            rpi3_top.stl
