@@ -8,10 +8,12 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 jobs:
-  hello_world_job:
+  stl_build:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Build stl
     steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
       - name: OpenSCAD STL build rpi3 top
         id: openscad-rpi3-top
         uses: pkoehlers/openscad-Build-action@v1
