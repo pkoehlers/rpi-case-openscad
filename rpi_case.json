@@ -36,7 +36,7 @@
             "pid": "56",
             "pil": "85.5",
             "pin_space": "3",
-            "render_part": "top",
+            "render_part": "bottom",
             "rpi_model": "4",
             "tolerance": "1.2"
         },
@@ -96,7 +96,7 @@
             "pid": "56",
             "pil": "85.5",
             "pin_space": "3",
-            "render_part": "top",
+            "render_part": "bottom",
             "rpi_model": "3",
             "tolerance": "1.2"
         },
