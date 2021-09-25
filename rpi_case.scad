@@ -59,6 +59,10 @@ antenna_connector_diameter = 8;
 // extra space for the connector
 antenna_connector_spacing = 1.5;
 
+/* [cutout options] */
+poe_cutout_enabled = false;
+camera_cutout_enabled = false;
+display_cutout_enabled = false;
 
 module __Customizer_Limit__ () {}  
 
@@ -176,16 +180,23 @@ module rpi4(){
           translate([40.7,50,0]) cube([8.5,7.8+extension,4.5]);                    // Micro HDMI1
       }
       translate([27.36,1,0]) cube([40.7,5.0,8.6+extension]);                    // GPIO pins
-      //translate([21,7.15,0]) cube([5.0,5.0,8.6+extension]);                     // Power over ethernet pins
+      if(poe_cutout_enabled) {
+          translate([21,7.15,0]) cube([5.0,5.0,8.6+extension]);                     // Power over ethernet pins
+      }
       translate([48.0,16.3,0]) cube([15.0,15.0,2.5]);                           // cpu
       translate([67.5,6.8,0]) cube([10.8,13.1,1.8]);                            // onboard wifi
-      //translate([79,17.3,0]) cube([2.5,22.15,5.4+extension]);                   // display connector
-      //translate([37.4,34.1,0]) cube([2.5,22.15,5.4+extension]);                 // CSI camera connector
+      
+      if(display_cutout_enabled) {
+          translate([79,17.3,0]) cube([2.5,22.15,5.4+extension]);                   // display connector
+      }
+      if(camera_cutout_enabled) {
+          translate([37.4,34.1,0]) cube([2.5,22.15,5.4+extension]);                 // CSI camera connector
+      }
       translate([26.9,43.55,0]) cube([8.5,14.95+extension,6.9]);                  // Audio jack
       translate([85,22.4,-(board_thickness+sd_height)]) cube([2.55+extension,11.11,sd_height+tolerance]); // SD card (poking out)
       }
       //following lines are the cutout for the antenna holder
-      if( antenna_connector_enabled) {
+      if(antenna_connector_enabled) {
         antenna_holder_cutout();
       }
       translate([fan_position_x,fan_position_y,0]) cylinder(extension,d=fan_pin_diam, center=false);                            // fan mount top-r
