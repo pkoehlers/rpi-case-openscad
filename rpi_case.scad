@@ -20,7 +20,7 @@ render_part = "top"; // ["top", "bottom", "all"]
 tolerance = 1.2;
 
 // how detailed the circular components are
-$fn = 90; 
+$fn = 80; 
 
 
 // add holder for the external zigbee antenna
@@ -53,9 +53,9 @@ fan_pin_distance = 32;
 // defines how far from the edge of the case the holder will be placed
 antenna_position_y=11; 
 // how far the holder will stand out
-antenna_holder_length=27;
+antenna_holder_length = 27;
 // diameter of the antenna connector
-antenna_connector_diameter=8;
+antenna_connector_diameter = 8;
 // extra space for the connector
 antenna_connector_spacing = 1.5;
 
